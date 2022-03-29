@@ -23,6 +23,11 @@ button{
   padding: 10px;
   border-radius: 10px;
 }
+#gamebuttonArea> button{
+  width: 200px;
+  height:200px;
+  margin:2
+}
 h1{
   font-family: helvetica, arial, sans-serif; 
 }
