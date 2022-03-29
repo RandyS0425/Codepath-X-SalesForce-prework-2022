@@ -19,8 +19,13 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
 }
+button{
+  padding: 10px;
+  border-radius: 10px;
+}
 h1{
   font-family: helvetica, arial, sans-serif; 
+}
 
 /* images and videos max out at full width */
 img,
