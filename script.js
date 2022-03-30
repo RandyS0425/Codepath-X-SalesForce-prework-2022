@@ -1,4 +1,7 @@
-//Global 
+//Global const
+const clueHoldTime = 1000; 
+const cluePauseTime = 333;
+const nextClueWaitTime = 1000;
 
 // Global Variables
 var pattern = [2,2,4,3,2,1,2,4];
@@ -53,6 +56,7 @@ function stopTone(){
   tonePlaying = false
 }
 
+
 // Page Initialization
 // Init Sound Synthesizer
 var AudioContext = window.AudioContext || window.webkitAudioContext 
@@ -63,4 +67,30 @@ g.connect(context.destination)
 g.gain.setValueAtTime(0,context.currentTime)
 o.connect(g)
 o.start(0)
+
+function lightButton (btn) {
+  document.getElementById("button" + btn).classList.add("lit")
+}
+
+function clearButton(btn) {
+  document.getElementById("button" + btn).classList.remove("lit")
+}
+
+function playSingleClue(btn) {
+  if (gamePlaying) {
+    lightButton(btn);
+    playTone(btn,clueHoldTime);
+    setTimeout(clearButton,clueHoldTime,btn);
+  }
+}
+
+function playClueSequence(){
+  context.resume()
+  let delay = nextClueWaitTime;
+  for (let i = 0; i <= progess; i++) {
+    
+  }
+}
+
+
 
