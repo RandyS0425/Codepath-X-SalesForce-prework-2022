@@ -113,8 +113,20 @@ function guess (btn) {
   if (!gamePlaying){
     return;
   }
-  
-  // add game logic 
+  if(pattern[guessCounter] == btn){
+    if(guessCounter == progress){
+      if(progress == pattern.length - 1){
+        WinGame();
+      }else{
+        progress++;
+        playClueSequence();
+      }
+    }else{
+      guessCounter++;
+    }
+  }else{
+    loseGame();
+  }
 }
 
 
