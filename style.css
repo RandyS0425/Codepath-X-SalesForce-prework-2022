@@ -66,6 +66,15 @@ h1{
 #button4:active, #button4.lit {
   background: yellow; 
 }
+#button5 {
+  background: lightpurple;
+}
+#button5:active, #button5.lit {
+  background: purple;
+}
+#button6:active, #button6.lit {
+  background:
+}
 
 /* images and videos max out at full width */
 img,
