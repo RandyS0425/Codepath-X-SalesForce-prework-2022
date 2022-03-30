@@ -107,7 +107,9 @@ function playClueSequence(){
     setTimeout(playSingleClue,delay,pattern[i]);
     delay += clueHoldTime
     delay += cluePauseTime;
-    
+    console.log(typeof(i))
+    console.log(i)
+    lightButton(i);
   }
   clueHoldTime -= 100;
   reset = false;
