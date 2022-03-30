@@ -9,13 +9,16 @@ var progress = 0;
 var gamePlaying = false; 
 var tonePlaying = false;
 var volume = 0.5; 
+var reset = false;
 var guessCounter = 0; 
 
 function startGame() {
   progress =0;
   gamePlaying = true;
-document.getElementById("startBtn").classList.add("hidden");
-document.getElementById("stopBtn").classList.remove("hidden");
+  clueHoldTime = 1000;  
+  document.getElementById("startBtn").classList.add("hidden");
+  document.getElementById("stopBtn").classList.remove("hidden");
+  playClueSequence();
   
 }
 
@@ -23,6 +26,7 @@ function stopGame() {
   gamePlaying = false; 
   document.getElementById("stopBtn").classList.remove("hidden");
   document.getElementById("startBtn").classList.add("hidden");
+  reset = true;
 }
 
 //  Sound Synthesis Functions
