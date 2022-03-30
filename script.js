@@ -15,6 +15,7 @@ function startGame() {
   gamePlaying = true;
 document.getElementById("startBtn").classList.add("hidden");
 document.getElementById("stopBtn").classList.remove("hidden");
+  
 }
 
 function stopGame() {
@@ -87,8 +88,11 @@ function playSingleClue(btn) {
 function playClueSequence(){
   context.resume()
   let delay = nextClueWaitTime;
-  for (let i = 0; i <= progess; i++) {
-    
+  for (let i = 0; i <= progress; i++) {
+    console.log("play single cue: " + pattern[i] + "in" + delay + "ms")
+    setTimeout(playSingleClue,delay,pattern[i])
+    delay += clueHoldTime
+    delay += cluePauseTime;
   }
 }
 
