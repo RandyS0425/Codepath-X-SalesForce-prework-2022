@@ -42,14 +42,15 @@ h1{
 #button1 {
   background: lightgreen;
 }
-#button1:active, #button.lit{
+
+#button1:active, #button1.lit{
   background:green; 
 }
 
 #button2 {
   background: lightblue;
 }
-#button2:active, #button.lit {
+#button2:active, #button2.lit {
   background:blue; 
 }
 
@@ -62,7 +63,7 @@ h1{
 #button4 {
   background: lightyellow;
 }
-#button4:active, #button3.lit {
+#button4:active, #button4.lit {
   background: yellow; 
 }
 
