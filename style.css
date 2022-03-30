@@ -37,6 +37,37 @@ h1{
   width: 200px;
   height:200px;
   margin:2
+}
+
+#button1 {
+  background: lightgreen;
+}
+
+#button2 {
+  background: lightblue;
+}
+
+#button3 {
+  background: pink; 
+}
+
+#button4 {
+  background: lightyellow;
+}
+
+#button1:active{
+  background:green; 
+}
+#button2:active{
+  background:blue; 
+}
+#button3:active{
+  background:red;
+}
+
+#button4: active{
+  background: yellow; 
+}
 
 /* images and videos max out at full width */
 img,
