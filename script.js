@@ -9,6 +9,7 @@ var progress = 0;
 var gamePlaying = false; 
 var tonePlaying = false;
 var volume = 0.5; 
+var guessCounter = 0; 
 
 function startGame() {
   progress =0;
@@ -86,6 +87,7 @@ function playSingleClue(btn) {
 }
 
 function playClueSequence(){
+  guessCounter = 0;
   context.resume()
   let delay = nextClueWaitTime;
   for (let i = 0; i <= progress; i++) {
@@ -95,6 +97,28 @@ function playClueSequence(){
     delay += cluePauseTime;
   }
 }
+
+function loseGame(){
+  stopGame();
+  alert("Game Over. You lost.");
+}
+
+function WinGame(){
+  stopGame();
+  alert("Game Over. You Won!");
+}
+
+function guess (btn) {
+  console.log("user guessed: " + btn);
+  if (!gamePlaying){
+    return;
+  }
+  
+  // add game logic 
+}
+
+
+
 
 
 
