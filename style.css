@@ -67,10 +67,13 @@ h1{
   background: yellow; 
 }
 #button5 {
-  background: lightpurple;
+  background: black;
 }
 #button5:active, #button5.lit {
-  background: purple;
+  background: white;
+}
+#button6 {
+  background:
 }
 #button6:active, #button6.lit {
   background:
