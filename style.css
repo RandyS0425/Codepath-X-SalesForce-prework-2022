@@ -73,10 +73,10 @@ h1{
   background: white;
 }
 #button6 {
-  background:
+  background: #FFD580;
 }
 #button6:active, #button6.lit {
-  background:
+  background: orange;
 }
 
 /* images and videos max out at full width */
