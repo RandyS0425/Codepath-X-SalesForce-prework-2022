@@ -2,6 +2,7 @@
 const clueHoldTime = 1000; 
 const cluePauseTime = 333;
 const nextClueWaitTime = 1000;
+const len = 4;
 
 // Global Variables
 var pattern = [2,2,4,3,2,1,2,4];
@@ -20,9 +21,8 @@ function generatePattern() {
 }
 
 function startGame() {
-  progress =0;
+  progress = 0;
   gamePlaying = true;
-  clueHoldTime = 1000;  
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence();
@@ -107,7 +107,10 @@ function playClueSequence(){
     setTimeout(playSingleClue,delay,pattern[i]);
     delay += clueHoldTime
     delay += cluePauseTime;
+    
   }
+  clueHoldTime -= 100;
+  reset = false;
 }
 
 function loseGame(){
