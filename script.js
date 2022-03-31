@@ -155,11 +155,9 @@ function guess (btn) {
       progress++;
       currScore = progress;
       updateMessage();
-      if(progress == pattern.length){
+      if(progress == pattern.length - 1 ){
         WinGame();
-        return;
       }else{
-        progress++;
         playClueSequence();
       }
     }else{
@@ -167,7 +165,7 @@ function guess (btn) {
     }
   }else{
     loseGame();
-    return;
+  
   }
 }
 
