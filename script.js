@@ -45,7 +45,6 @@ function stopGame() {
   gamePlaying = false; 
   document.getElementById("stopBtn").classList.add("hidden");
   document.getElementById("startBtn").classList.remove("hidden");
-  reset = true;
   if (currScore > highScore) {
     highScore = currScore;
     updateMessage();
@@ -53,7 +52,7 @@ function stopGame() {
   
 }
 function updateMessage() {
-  document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score:"
+  document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
     + currScore + " | High Score: "+ highScore;
 }
 //  Sound Synthesis Functions
@@ -102,6 +101,7 @@ g.connect(context.destination)
 g.gain.setValueAtTime(0,context.currentTime)
 o.connect(g)
 o.start(0)
+updateMessage();
 
 function lightButton (btn) {
   document.getElementById("button" + btn).classList.add("lit")
@@ -162,6 +162,7 @@ function guess(btn){
         //Pattern correct. Add next segment
         progress++;
         currScore = progress;
+        updateMessage();
         playClueSequence();
       }
     }else{
