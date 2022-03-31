@@ -5,7 +5,7 @@ const nextClueWaitTime = 1000;
 const len = 4;
 
 // Global Variables
-var pattern = [2,2,4,3,2,1,2,4];
+var pattern = [];
 var progress = 0;
 var gamePlaying = false; 
 var tonePlaying = false;
@@ -100,6 +100,13 @@ function stopTone(){
   tonePlaying = false;
 }
 
+function lightButton(btn) {
+  document.getElementById("button" + btn).classList.add("lit");
+}
+
+function clearButton(btn) {
+  document.getElementById("button" + btn).classList.add("lit");
+}
 
 
 function playSingleClue(btn) {
@@ -113,8 +120,7 @@ function playSingleClue(btn) {
 function playClueSequence(){
   guessCounter = 0;
   context.resume();
-  clearTimeout(timer);
-  clueHoldTime -= 100;
+  clearTimeout(timer);3
   reset = false;
   let delay = nextClueWaitTime;
   for (let i = 0; i <= progress; i++) {
