@@ -16,15 +16,21 @@
   </head>
   <body>
     <h1> Light and Sound Memory Game </h1>
+    
     <p>
       Welcome to the color guessing game. Repeat the pattern by pressing the buttons.
     </p>
+    
+    <p id="message1">
 
     <div class="slidecontainer">
     <img src = "https://cdn.glitch.com/426e7d0a-f0e2-4207-8ff9-d34e4085a91f%2Fsound-off-icon-40944.png?v=1615183487030" style="width:20px;height:20px;">
     <input id = "volumeSlider" type="range" min="1" max="100" value="50" class="slider">
     </div>
-                               
+    
+    <p id="message2">
+      
+    </p>                
     <button id="startBtn" onclick = "startGame()">
       Start
     </button>
@@ -32,10 +38,8 @@
       Stop
     </button>
   
-    <p id = "clock"> Countdown: </p>
-    
-    
-  <div id="gameButtonArea">
+<!--     <p id = "clock"> Countdown: </p> -->
+     <div id="gameButtonArea">
     <button id="button1"onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"></button>
     <button id="button2"onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"></button>
     <button id="button3"onclick="guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"></button>

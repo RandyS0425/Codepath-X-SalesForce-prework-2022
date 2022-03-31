@@ -49,9 +49,11 @@ function stopGame() {
     highScore = currScore;
     updateMessage();
   }
+  
 }
 function updateMessage() {
-  
+  document.getElementById("message").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score:"
+    + currScore + " | High Score: "+ highScore;
 }
 //  Sound Synthesis Functions
 const freqMap = {
@@ -150,8 +152,12 @@ function guess (btn) {
   }
   if(pattern[guessCounter] == btn){
     if(guessCounter == progress){
-      if(progress == pattern.length - 1){
+      progress++;
+      currScore = progress;
+      updateMessage();
+      if(progress == pattern.length){
         WinGame();
+        return;
       }else{
         progress++;
         playClueSequence();
@@ -161,6 +167,7 @@ function guess (btn) {
     }
   }else{
     loseGame();
+    return;
   }
 }
 
