@@ -23,17 +23,20 @@ function generatePattern() {
 function startGame() {
   progress = 0;
   gamePlaying = true;
+  
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence();
   generatePattern();
   
+  
+  
 }
 
 function stopGame() {
   gamePlaying = false; 
-  document.getElementById("stopBtn").classList.remove("hidden");
-  document.getElementById("startBtn").classList.add("hidden");
+  document.getElementById("stopBtn").classList.add("hidden");
+  document.getElementById("startBtn").classList.remove("hidden");
   reset = true;
 }
 
