@@ -29,7 +29,7 @@ function startGame() {
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
-    
+     generatePattern();
      document.getElementById("startBtn").classList.add("hidden");
      document.getElementById("stopBtn").classList.remove("hidden");
      document.getElementById("volumeSlider").addEventListener("change",function() {
@@ -38,8 +38,7 @@ function startGame() {
 }, false);
       playClueSequence();
 }
- 
-  
+
 function stopGame() {
     gamePlaying = false; 
     document.getElementById("stopBtn").classList.add("hidden");
@@ -51,10 +50,14 @@ function stopGame() {
   clearTimer();
 }
 
+function loseGame(){
+  stopGame();
+  alert("Game Over. You lost.");
+}
 
-function updateMessage() {
-      document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
-    + currScore + " | High Score: "+ highScore;
+function winGame(){
+  stopGame();
+  alert("Game over. You won");
 }
 //  Sound Synthesis Functions
 const freqMap = {
@@ -86,18 +89,18 @@ function startTone (btn) {
   }
 }
 
+
+function updateMessage() {
+      document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
+    + currScore + " | High Score: "+ highScore;
+}
+
 function stopTone(){
   g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
   tonePlaying = false;
 }
 
-function lightButton (btn) {
-  document.getElementById("button" + btn).classList.add("lit")
-}
 
-function clearButton(btn) {
-  document.getElementById("button" + btn).classList.remove("lit")
-}
 
 function playSingleClue(btn) {
   if (gamePlaying) {
@@ -143,18 +146,6 @@ function updateTimer() {
     }
  }
   
-
-
-
-function loseGame(){
-  stopGame();
-  alert("Game Over. You lost.");
-}
-function winGame(){
-  stopGame();
-  alert("Game over. You won");
-}
-
 function guess(btn){
   console.log("user guessed: " + btn);
   
