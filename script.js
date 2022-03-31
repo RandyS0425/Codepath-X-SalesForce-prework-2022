@@ -105,7 +105,7 @@ function lightButton(btn) {
 }
 
 function clearButton(btn) {
-  document.getElementById("button" + btn).classList.add("lit");
+  document.getElementById("button" + btn).classList.remove("lit");
 }
 
 
