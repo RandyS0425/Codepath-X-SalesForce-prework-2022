@@ -20,7 +20,6 @@ var remainingTime =0;
 var timer; 
 
 function generatePattern() {
-  
   for (let j = 0; j < len; j++) {
     pattern[j] = Math.ceil(Math.random() * 6);
   }
@@ -30,15 +29,14 @@ function startGame() {
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
+    
      document.getElementById("startBtn").classList.add("hidden");
      document.getElementById("stopBtn").classList.remove("hidden");
      document.getElementById("volumeSlider").addEventListener("change",function() {
      volume = document.getElementById("volumeSlider").value/100.0;
       console.log("Volume Updated to " + volume); 
 }, false);
-   
-   generatePattern();
-   playClueSequence();
+      playClueSequence();
 }
  
   
@@ -53,13 +51,6 @@ function stopGame() {
   clearTimer();
 }
 
-function clearTimer() {
-  clearTimeout(timer);
-  remainingTime = 0;
-  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
-  
-  
-}
 
 function updateMessage() {
       document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
@@ -132,10 +123,28 @@ function playClueSequence(){
   remainingTime = timeGiven;
   timer = setTimeout(function tick () {
     if(gamePlaying) {
-      updateTimer()
-    }
+       updateTimer();
+      timer(tick, 1000);
+      }
+    }, delay);
   }
+function clearTimer() {
+  clearTimeout(timer);
+  remainingTime = 0;
+  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
 }
+  
+function updateTimer() {
+    if (remainingTime >= 0) {
+      document.getElementById("timer").innerHTML = "Time Remaining: " + remainingTime;
+      remainingTime--;
+    }else {
+      loseGame();
+    }
+ }
+  
+
+
 
 function loseGame(){
   stopGame();
