@@ -27,6 +27,7 @@ function generatePattern() {
 function startGame() {
   progress = 0;
   gamePlaying = true;
+  currScore = 0; 
   
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
@@ -52,7 +53,7 @@ function stopGame() {
   
 }
 function updateMessage() {
-  document.getElementById("message").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score:"
+  document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score:"
     + currScore + " | High Score: "+ highScore;
 }
 //  Sound Synthesis Functions
@@ -139,25 +140,28 @@ function loseGame(){
   stopGame();
   alert("Game Over. You lost.");
 }
-
-function WinGame(){
+function winGame(){
   stopGame();
-  alert("Game Over. You Won!");
+  alert("Game over. You won");
 }
 
-function guess (btn) {
+function guess(btn){
   console.log("user guessed: " + btn);
-  if (!gamePlaying){
+  
+  if(!gamePlaying){
     return;
   }
+  
   if(pattern[guessCounter] == btn){
+    //Guess was correct!
     if(guessCounter == progress){
-      progress++;
-      currScore = progress;
-      updateMessage();
-      if(progress == pattern.length - 1 ){
-        WinGame();
+      if(progress == pattern.length - 1){
+        //GAME OVER: WIN!
+        winGame();
       }else{
+        //Pattern correct. Add next segment
+        progress++;
+        currScore = progress;
         playClueSequence();
       }
     }else{
@@ -165,12 +169,5 @@ function guess (btn) {
     }
   }else{
     loseGame();
-  
   }
 }
-
-
-
-
-
-
