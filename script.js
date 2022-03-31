@@ -15,7 +15,9 @@ var guessCounter = 0;
 var volume = 0.5;
 var currScore = 0; 
 var highScore = 0;
-
+var timeGiven = 20; 
+var remainingTime =0;
+var timer; 
 
 function generatePattern() {
   
@@ -48,6 +50,14 @@ function stopGame() {
           highScore = currScore;
           updateMessage();
     }
+  clearTimer();
+}
+
+function clearTimer() {
+  clearTimeout(timer);
+  remainingTime = 0;
+  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
+  
   
 }
 
@@ -109,6 +119,9 @@ function playSingleClue(btn) {
 function playClueSequence(){
   guessCounter = 0;
   context.resume();
+  clearTimeout(timer);
+  clueHoldTime -= 100;
+  reset = false;
   let delay = nextClueWaitTime;
   for (let i = 0; i <= progress; i++) {
     console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
@@ -116,8 +129,12 @@ function playClueSequence(){
     delay += clueHoldTime
     delay += cluePauseTime;
   }
-  clueHoldTime -= 100;
-  reset = false;
+  remainingTime = timeGiven;
+  timer = setTimeout(function tick () {
+    if(gamePlaying) {
+      updateTimer()
+    }
+  }
 }
 
 function loseGame(){
