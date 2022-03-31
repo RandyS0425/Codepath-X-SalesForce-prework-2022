@@ -12,6 +12,10 @@ var tonePlaying = false;
 var volume = 0.5; 
 var reset = false;
 var guessCounter = 0; 
+var volume = 0.5;
+var currScore = 0; 
+var highScore = 0;
+
 
 function generatePattern() {
   
@@ -26,20 +30,29 @@ function startGame() {
   
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
-  playClueSequence();
-  generatePattern();
-  
-  
-  
-}
+   document.getElementById("volumeSlider").addEventListener("change",function() {
+   volume = document.getElementById("volumeSlider").value/100.0;
+    console.log("Volume Updated to " + volume);                                                        
+}, false);
 
+  generatePattern();
+   playClueSequence();
+}
+ 
+  
 function stopGame() {
   gamePlaying = false; 
   document.getElementById("stopBtn").classList.add("hidden");
   document.getElementById("startBtn").classList.remove("hidden");
   reset = true;
+  if (currScore > highScore) {
+    highScore = currScore;
+    updateMessage();
+  }
 }
-
+function updateMessage() {
+  
+}
 //  Sound Synthesis Functions
 const freqMap = {
   1: 261.6,
