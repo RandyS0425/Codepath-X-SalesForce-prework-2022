@@ -19,26 +19,27 @@ var clueHoldTime = 1000;
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
 
-function generatePattern() {
-  for (let j = 0; j < len; j++) {
-    pattern[j] = Math.ceil(Math.random() * 6);
-  }
-}
 
-   document.getElementById("slow").addEventListener("click", function (){
-       speed("slow");
-   document.getElementById("currentSpeed").innerHTML = "Current Speed: Slow "
-     });
-   document.getElementById("fast").addEventListener("click", function (){
-       speed("fast");
-      document.getElementById("currentSpeed").innerHTML = "Current Speed: Fast"
-     });
-   document.getElementById("ExtraFast").addEventListener("click", function (){
-       speed("ExtraFast");
-     document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
-     });
+ document.getElementById("slow").addEventListener("click", function (){
+ speed("slow");
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Slow "
+ });
+ document.getElementById("fast").addEventListener("click", function (){
+ speed("fast");
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Fast"
+ });
+ document.getElementById("ExtraFast").addEventListener("click", function (){
+ speed("ExtraFast");
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
+ });
 
-function startGame() {
+ function generatePattern() {
+    for (let j = 0; j < len; j++) {
+        pattern[j] = Math.ceil(Math.random() * 6);
+   }
+ }
+
+ function startGame() {
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
@@ -48,146 +49,135 @@ function startGame() {
      document.getElementById("volumeSlider").addEventListener("change",function() {
      volume = document.getElementById("volumeSlider").value/100.0;
       console.log("Volume Updated to " + volume); 
-}, false);
+   }, false);
       playClueSequence();
-      showStrike();
-}
+ }
 
 function stopGame() {
     gamePlaying = false; 
     document.getElementById("stopBtn").classList.add("hidden");
     document.getElementById("startBtn").classList.remove("hidden");
-      if (currScore > highScore) {
+       if (currScore > highScore) {
           highScore = currScore;
           updateMessage();
-    }
-  clearTimer();
+     }
+      clearTimer();
+  }
+
+ function loseGame(){
+    stopGame();
+    alert("Game Over. You lost.");
+ }
+
+ function winGame(){
+   stopGame();
+   alert("Game over. You won");
 }
 
-function loseGame(){
-  stopGame();
-  alert("Game Over. You lost.");
-}
+ const freqMap = {
+   1: 261.6,
+   2: 329.6,
+   3: 392,
+   4: 466.2, 
+   5: 392, 
+   6: 440
+ };
 
-function winGame(){
-  stopGame();
-  alert("Game over. You won");
-}
-
-const freqMap = {
-  1: 261.6,
-  2: 329.6,
-  3: 392,
-  4: 466.2, 
-  5: 392, 
-  6: 440
-};
-
-function playTone(btn,len){ 
+ function playTone(btn,len){ 
   o.frequency.value = freqMap[btn];
   g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.025);
   context.resume()
   tonePlaying = true;
   setTimeout(function(){
   stopTone();
-  },len);
+   },len);
 }
 
 function startTone (btn) {
   if (!tonePlaying){
-    context.resume()
-    o.frequency.value = freqMap[btn];
-    g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.25);
-    context.resume()
-    tonePlaying = true;
-  }
+      context.resume()
+      o.frequency.value = freqMap[btn];
+      g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.25);
+      context.resume()
+      tonePlaying = true;
+     }
 }
 
-function stopTone(){
-  g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
-  tonePlaying = false;
+ function stopTone(){
+   g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
+   tonePlaying = false;
 }
-function lightButton(btn) {
-  document.getElementById("button" + btn).classList.add("lit");
-}
-
-function clearButton(btn) {
-  document.getElementById("button" + btn).classList.remove("lit");
+ function lightButton(btn) {
+   document.getElementById("button" + btn).classList.add("lit");
 }
 
-function updateMessage() {
+ function clearButton(btn) {
+    document.getElementById("button" + btn).classList.remove("lit");
+}
+
+ function updateMessage() {
       document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
-    + currScore + " | High Score: "+ highScore;
+      + currScore + " | High Score: "+ highScore;
 }
 
-function showStrike(){
-  document.getElementById("speed").innerHTML = " Current Strikes " + currStrikes; 
-   
-}
-function playSingleClue(btn) {
-  if (gamePlaying) {
-    lightButton(btn);
-    playTone(btn,clueHoldTime);
-    setTimeout(clearButton,clueHoldTime,btn);
+ function playSingleClue(btn) {
+   if (gamePlaying) {
+      lightButton(btn);
+      playTone(btn,clueHoldTime);
+      setTimeout(clearButton,clueHoldTime,btn);
   }
 }
+
 function clearTimer() {
-  clearTimeout(timer);
-  remainingTime = 0;
-  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
+   clearTimeout(timer);
+   remainingTime = 0;
+   document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
 }
   
-function updateTimer() {
-    if (remainingTime >= 0) {
-      document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
-      remainingTime--;
-    } else {
-      loseGame();
-    }
+ function updateTimer() {
+     if (remainingTime >= 0) {
+         document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
+         remainingTime--;
+     } else {
+       loseGame();
+     }
  }
 
 function playClueSequence(){
-  guessCounter = 0;
-  context.resume();
-  clearTimeout(timer);3
-  reset = false;
-  let delay = nextClueWaitTime;
-  clearTimeout(timer);
-  document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
-  for (let i = 0; i <= progress; i++) {
-    console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
-    setTimeout(playSingleClue,delay,pattern[i]);
-    delay += clueHoldTime
-    delay += cluePauseTime;
-  }
-  remainingTime = timeGiven;
-  timer = setTimeout(function tick () {
+   guessCounter = 0;
+   context.resume();
+   clearTimeout(timer);3
+   reset = false;
+   let delay = nextClueWaitTime;
+   clearTimeout(timer);
+   document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
+     for (let i = 0; i <= progress; i++) {
+        console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
+        setTimeout(playSingleClue,delay,pattern[i]);
+        delay += clueHoldTime
+        delay += cluePauseTime;
+   }
+        remainingTime = timeGiven;
+        timer = setTimeout(function tick () {
     if(gamePlaying) {
        updateTimer();
-      timer = setTimeout(tick, 1000);
-      }
-    }, delay);
+       timer = setTimeout(tick, 1000);
+       }
+     }, delay);
   }
 
-function clearStrikes(){
-  currStrikes = 0; 
-}
-
 function guess(btn){
-  console.log("user guessed: " + btn);
+   console.log("user guessed: " + btn);
   
   if(!gamePlaying){
     return;
   }
   
   if(pattern[guessCounter] == btn){
-    //Guess was correct!
     if(guessCounter == progress){
       if(progress == pattern.length - 1){
-        //GAME OVER: WIN!
         winGame();
       }else{
-        //Pattern correct. Add next segment
         progress++;
         currScore = progress;
         updateMessage();
@@ -204,14 +194,13 @@ function guess(btn){
 function speed(fast) {
   switch(fast){
     case "slow": clueHoldTime = 1000;
-                nextClueWaitTime = 1000;
+                 nextClueWaitTime = 1000;
       break;
-    case "fast": clueHoldTime = 500; 
+    case "fast":clueHoldTime = 500; 
                 nextClueWaitTime = 500;
       break;
-    default: clueHoldTime = 200;
+    default:clueHoldTime = 200;
             nextClueWaitTime = 200;
-      
   }
   
 }
