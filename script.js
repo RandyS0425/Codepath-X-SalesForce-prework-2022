@@ -18,11 +18,11 @@ var timer;
 var clueHoldTime = 1000; 
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
+var difficultyLevel = 0; 
 var AudioContext = window.AudioContext || window.webkitAudioContext 
 var context = new AudioContext()
 var o = context.createOscillator()
 var g = context.createGain()
-let difficultyLevel;
 g.connect(context.destination)
 g.gain.setValueAtTime(0,context.currentTime)
 o.connect(g)
@@ -46,18 +46,40 @@ updateMessage();
  
  document.getElementById("easy").addEventListener("click", function (){
  speed("easy");
- document.getElementById("").innerHTML = "Current Speed: Normal "
- });
- document.getElementById("fast").addEventListener("click", function (){
- speed("fast");
- document.getElementById("currentSpeed").innerHTML = "Current Speed: Fast"
- });
- document.getElementById("ExtraFast").addEventListener("click", function (){
- speed("ExtraFast");
- document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
+ document.getElementById("showDifficultyLevel").innerHTML = "Current difficulty: Easy"
  });
 
-function 
+ document.getElementById("medium").addEventListener("click", function (){
+ speed("medium");
+ document.getElementById("showDifficultyLevel").innerHTML = "Current Difficulty: Medium"
+ });
+
+ document.getElementById("hard").addEventListener("click", function (){
+ speed("hard");
+ document.getElementById("showDifficultyLevel").innerHTML = "Current Speed: Extra Fast "
+ });
+function speed(fast) {
+    switch(fast){
+      case "normal": clueHoldTime = 1000;
+                   nextClueWaitTime = 1000;
+       break;
+      case "fast": clueHoldTime = 500; 
+                  nextClueWaitTime = 500;
+      break;
+    default: clueHoldTime = 200;
+             nextClueWaitTime = 200;
+  }
+  
+}
+
+  function showDifficultyLevel() {
+    
+  switch (difficultyLevel) {
+      case 
+  }
+    
+  }
+
  function generatePattern() {
     for (let j = 0; j < len; j++) {
         pattern[j] = Math.ceil(Math.random() * 6);
@@ -218,18 +240,6 @@ function guess(btn){
      }
 }
   
- function speed(fast) {
-    switch(fast){
-      case "normal": clueHoldTime = 1000;
-                   nextClueWaitTime = 1000;
-       break;
-      case "fast": clueHoldTime = 500; 
-                  nextClueWaitTime = 500;
-      break;
-    default: clueHoldTime = 200;
-             nextClueWaitTime = 200;
-  }
-  
-}
+ 
 
 
