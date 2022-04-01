@@ -72,6 +72,17 @@ function speed(fast) {
   
 }
 
+function showDifficultyLevel(medium) {
+    
+  switch (medium) {
+    case "easy": difficultyDefault = 6;
+       break;
+    case "medium":  difficultyDefault= 10; 
+       break;
+    case "hard": difficultyDefault = 20;
+  }    
+}
+
  function startGame() {
      progress = 0;
      gamePlaying = true;
@@ -85,21 +96,10 @@ function speed(fast) {
    }, false);
       playClueSequence();
  }
- 
-function showDifficultyLevel(medium) {
-    
-  switch (medium) {
-      case "easy": difficultyLevel = difficultyDefault;
-      break;
-    case "medium": difficultyLevel = 10; 
-      break;
-    default: difficultyLevel = 20;
-  }    
-    
-  }
+
 function generatePattern() {
     for (let j = 0; j < len; j++) {
-        pattern[j] = Math.ceil(Math.random() * difficultyLevel);
+        pattern[j] = Math.ceil(Math.random() * difficultyDefault);
       if (difficultyLevel == 10) {
         alert(10);
       }
