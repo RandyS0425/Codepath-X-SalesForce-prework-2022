@@ -72,9 +72,9 @@ function speed(fast) {
   
 }
 
-function showDifficultyLevel(medium) {
+function showDifficultyLevel(easy) {
     
-  switch (medium) {
+  switch (easy) {
     case "easy": difficultyDefault = 6;
        break;
     case "medium": difficultyDefault= 10; 
@@ -223,11 +223,9 @@ function playClueSequence(){
 
 function guess(btn){
    console.log("user guessed: " + btn);
-  
   if(!gamePlaying){
     return;
   }
-  
   if(pattern[guessCounter] == btn){
     if(guessCounter == progress){
       if(progress == pattern.length - 1){
