@@ -1,6 +1,6 @@
 //Global const
 
-const len = 4;
+var len = 4;
 // Global Variables
 var pattern = [];
 var progress = 0;
@@ -38,16 +38,19 @@ var difficultyDefault = 6;
 document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
+  len = 1 
  });
 
  document.getElementById("medium").addEventListener("click", function (){
  showDifficultyLevel("medium");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
+   len = 2
  });
 
  document.getElementById("hard").addEventListener("click", function (){
  showDifficultyLevel("hard");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Hard"
+   len = 3
  });
 
 function speed(fast) {
@@ -65,14 +68,16 @@ function speed(fast) {
 }
 
 function showDifficultyLevel(easy) {
-    
   switch (easy) {
     case "easy": difficultyDefault = 1;
+      len = 1
        break;
     case "medium": difficultyDefault= 2; 
+      len = 2
        break;
       
     case "hard": difficultyDefault= 3; 
+      len = 3
        break;
   }    
 }
@@ -82,6 +87,7 @@ function showDifficultyLevel(easy) {
      gamePlaying = true;
      currScore = 0; 
      generatePattern();
+   showDifficultyLevel();
      document.getElementById("startBtn").classList.add("hidden");
      document.getElementById("stopBtn").classList.remove("hidden");
      document.getElementById("volumeSlider").addEventListener("change",function() {
@@ -92,6 +98,7 @@ function showDifficultyLevel(easy) {
  }
 
 function generatePattern() {
+    console.log("LENGTH: " + len);
     for (let i = 0; i < len; i++) {
       var randomNum = Math.random() * 6
         console.log("num: " + randomNum);
