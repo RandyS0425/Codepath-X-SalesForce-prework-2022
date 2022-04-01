@@ -1,7 +1,7 @@
 //Global const
 
 const len = 4;
-
+const strikes = 3; 
 // Global Variables
 var pattern = [];
 var progress = 0;
@@ -28,16 +28,20 @@ function generatePattern() {
 
    document.getElementById("slow").addEventListener("click", function (){
        speed("slow");
+      document.getElementById("currentSpeed").innerHTML = "Current Speed: Slow "
      });
    document.getElementById("fast").addEventListener("click", function (){
        speed("fast");
+      document.getElementById("currentSpeed").innerHTML = "Current Speed: Fast"
      });
    document.getElementById("ExtraFast").addEventListener("click", function (){
        speed("ExtraFast");
+     document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
      });
 
 function startGame() {
      progress = 0;
+      
      gamePlaying = true;
      currScore = 0; 
      generatePattern();
@@ -118,7 +122,9 @@ function lightButton(btn) {
 function clearButton(btn) {
   document.getElementById("button" + btn).classList.remove("lit");
 }
-
+function showStrike(){
+  
+}
 
 function playSingleClue(btn) {
   if (gamePlaying) {
@@ -187,10 +193,13 @@ function guess(btn){
       }
     }else{
       guessCounter++;
+      strikes++;
     }
   }else{
-    loseGame();
-  }
+    if (strikes == 3){
+      loseGame();
+    }
+   }
 }
 function speed(fast) {
   switch(fast){
