@@ -1,7 +1,5 @@
 //Global const
-const clueHoldTime = 1000; 
-const cluePauseTime = 333;
-const nextClueWaitTime = 1000;
+
 const len = 4;
 
 // Global Variables
@@ -18,6 +16,9 @@ var highScore = 0;
 var timeGiven = 20; 
 var remainingTime =0;
 var timer; 
+var clueHoldTime = 1000; 
+var cluePauseTime = 333;
+var nextClueWaitTime = 1000;
 
 function generatePattern() {
   for (let j = 0; j < len; j++) {
@@ -181,7 +182,20 @@ function guess(btn){
     loseGame();
   }
 }
-
+function speed(fast) {
+  switch(fast){
+    case "slow": clueHoldTime = 1000;
+                nextClueWaitTime = 1000;
+      break;
+    case "fast": clueHoldTime = 500; 
+                nextClueWaitTime = 500;
+      break;
+    default: clueHoldTime = 200;
+            nextClueWaitTime = 200;
+      
+  }
+  
+}
 // Page Initialization
 // Init Sound Synthesizer
 var AudioContext = window.AudioContext || window.webkitAudioContext 
