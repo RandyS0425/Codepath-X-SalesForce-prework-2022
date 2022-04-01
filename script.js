@@ -77,7 +77,7 @@ function showDifficultyLevel(medium) {
   switch (medium) {
     case "easy": difficultyDefault = 6;
        break;
-    case "medium":  difficultyDefault= 10; 
+    case "medium": difficultyDefault= 10; 
        break;
     case "hard": difficultyDefault = 20;
   }    
@@ -176,9 +176,10 @@ function clearButton(btn){
 
  function playSingleClue(btn) {
    if (gamePlaying) {
-      lightButton(btn);
+     console.log(btn);
+      lightButton(btn - 1);
       playTone(btn,clueHoldTime);
-      setTimeout(clearButton,clueHoldTime,btn);
+      setTimeout(clearButton , clueHoldTime,btn);
   }
 }
 
@@ -200,14 +201,14 @@ function clearTimer() {
 function playClueSequence(){
    guessCounter = 0;
    context.resume();
-   clearTimeout(timer);3
+   clearTimeout(timer);
    reset = false;
    let delay = nextClueWaitTime;
    clearTimeout(timer);
    document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
      for (let i = 0; i <= progress; i++) {
         console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
-        setTimeout(playSingleClue,delay,pattern[i]);
+        setTimeout(playSingleClue , delay,pattern[i]);
         delay += clueHoldTime
         delay += cluePauseTime;
    }
