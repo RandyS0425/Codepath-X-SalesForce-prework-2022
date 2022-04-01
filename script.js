@@ -22,11 +22,13 @@ var AudioContext = window.AudioContext || window.webkitAudioContext
 var context = new AudioContext()
 var o = context.createOscillator()
 var g = context.createGain()
+let difficultyLevel;
 g.connect(context.destination)
 g.gain.setValueAtTime(0,context.currentTime)
 o.connect(g)
 o.start(0)
 updateMessage();
+
 
 
  document.getElementById("normal").addEventListener("click", function (){
@@ -41,7 +43,21 @@ updateMessage();
  speed("ExtraFast");
  document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
  });
+ 
+ document.getElementById("easy").addEventListener("click", function (){
+ speed("easy");
+ document.getElementById("").innerHTML = "Current Speed: Normal "
+ });
+ document.getElementById("fast").addEventListener("click", function (){
+ speed("fast");
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Fast"
+ });
+ document.getElementById("ExtraFast").addEventListener("click", function (){
+ speed("ExtraFast");
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
+ });
 
+function 
  function generatePattern() {
     for (let j = 0; j < len; j++) {
         pattern[j] = Math.ceil(Math.random() * 6);
@@ -49,6 +65,7 @@ updateMessage();
  }
 
  function startGame() {
+     difficultyLevel = 0;
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
