@@ -53,6 +53,7 @@ function startGame() {
       console.log("Volume Updated to " + volume); 
 }, false);
       playClueSequence();
+      showStrike();
 }
 
 function stopGame() {
@@ -124,7 +125,7 @@ function clearButton(btn) {
   document.getElementById("button" + btn).classList.remove("lit");
 }
 function showStrike(){
-  document.getElementById("speed").innerHTML = " Current Strikes" + strikes; 
+  document.getElementById("speed").innerHTML = " Current Strikes " + currStrikes; 
    
 }
 
@@ -195,14 +196,16 @@ function guess(btn){
       }
     }else{
       guessCounter++;
-      currStrikes++;
+     
     }
   }else{
+    currStrikes++;
     if (currStrikes == strikes){
       loseGame();
     }
+      
+    }
    }
-}
 function speed(fast) {
   switch(fast){
     case "slow": clueHoldTime = 1000;
