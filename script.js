@@ -19,6 +19,7 @@ var timer;
 var clueHoldTime = 1000; 
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
+var currStrikes = 0;
 
 function generatePattern() {
   for (let j = 0; j < len; j++) {
@@ -123,7 +124,8 @@ function clearButton(btn) {
   document.getElementById("button" + btn).classList.remove("lit");
 }
 function showStrike(){
-  
+  document.getElementById("speed").innerHTML = " Current Strikes" + strikes; 
+   
 }
 
 function playSingleClue(btn) {
@@ -193,10 +195,10 @@ function guess(btn){
       }
     }else{
       guessCounter++;
-      strikes++;
+      currStrikes++;
     }
   }else{
-    if (strikes == 3){
+    if (currStrikes == strikes){
       loseGame();
     }
    }
