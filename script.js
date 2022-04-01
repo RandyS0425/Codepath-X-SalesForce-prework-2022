@@ -38,19 +38,19 @@ var difficultyDefault = 6;
 document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
-  len = 1 
+  len = 4 
  });
 
  document.getElementById("medium").addEventListener("click", function (){
  showDifficultyLevel("medium");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
-   len = 2
+   len = 6
  });
 
  document.getElementById("hard").addEventListener("click", function (){
  showDifficultyLevel("hard");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Hard"
-   len = 3
+   len = 8
  });
 
 function speed(fast) {
@@ -69,20 +69,22 @@ function speed(fast) {
 
 function showDifficultyLevel(easy) {
   switch (easy) {
-    case "easy": difficultyDefault = 1;
+    case "easy": difficultyDefault = 4;
       len = 1
        break;
-    case "medium": difficultyDefault= 2; 
+    case "medium": difficultyDefault= 6; 
       len = 2
        break;
       
-    case "hard": difficultyDefault= 3; 
+    case "hard": difficultyDefault= 8; 
       len = 3
        break;
   }    
 }
 
  function startGame() {
+     console.log("PATTERN: " + pattern);
+     pattern = []
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
