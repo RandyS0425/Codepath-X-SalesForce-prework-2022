@@ -65,6 +65,7 @@ function stopGame() {
           updateMessage();
     }
   clearTimer();
+  clearStrikes();
 }
 
 function loseGame(){
@@ -105,6 +106,10 @@ function startTone (btn) {
     tonePlaying = true;
   }
 }
+function stopTone(){
+  g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
+  tonePlaying = false;
+}
 
 
 function updateMessage() {
@@ -112,10 +117,6 @@ function updateMessage() {
     + currScore + " | High Score: "+ highScore;
 }
 
-function stopTone(){
-  g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
-  tonePlaying = false;
-}
 
 function lightButton(btn) {
   document.getElementById("button" + btn).classList.add("lit");
@@ -128,7 +129,6 @@ function showStrike(){
   document.getElementById("speed").innerHTML = " Current Strikes " + currStrikes; 
    
 }
-
 function playSingleClue(btn) {
   if (gamePlaying) {
     lightButton(btn);
@@ -173,7 +173,11 @@ function updateTimer() {
       loseGame();
     }
  }
-  
+
+function clearStrikes(){
+  currStrikes = 0; 
+}
+
 function guess(btn){
   console.log("user guessed: " + btn);
   
@@ -192,6 +196,7 @@ function guess(btn){
         progress++;
         currScore = progress;
         updateMessage();
+        currStrikes++;
         playClueSequence();
       }
     }else{
@@ -199,11 +204,8 @@ function guess(btn){
      
     }
   }else{
-    currStrikes++;
-    if (currStrikes == strikes){
-      loseGame();
-    }
-      
+      if (currStrikes = 3){
+        loseGame();
     }
    }
 function speed(fast) {
