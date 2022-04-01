@@ -1,7 +1,7 @@
 //Global const
 const clueHoldTime = 1000; 
 const cluePauseTime = 333;
-const nextClueWaitTime = 500;
+const nextClueWaitTime = 1000;
 const len = 4;
 
 // Global Variables
