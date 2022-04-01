@@ -29,7 +29,7 @@ function generatePattern() {
 
    document.getElementById("slow").addEventListener("click", function (){
        speed("slow");
-      document.getElementById("currentSpeed").innerHTML = "Current Speed: Slow "
+   document.getElementById("currentSpeed").innerHTML = "Current Speed: Slow "
      });
    document.getElementById("fast").addEventListener("click", function (){
        speed("fast");
@@ -42,7 +42,6 @@ function generatePattern() {
 
 function startGame() {
      progress = 0;
-      
      gamePlaying = true;
      currScore = 0; 
      generatePattern();
@@ -53,7 +52,6 @@ function startGame() {
       console.log("Volume Updated to " + volume); 
 }, false);
       playClueSequence();
-      showStrike();
 }
 
 function stopGame() {
@@ -65,7 +63,6 @@ function stopGame() {
           updateMessage();
     }
   clearTimer();
-  clearStrikes();
 }
 
 function loseGame(){
@@ -106,18 +103,11 @@ function startTone (btn) {
     tonePlaying = true;
   }
 }
+
 function stopTone(){
   g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
   tonePlaying = false;
 }
-
-
-function updateMessage() {
-      document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
-    + currScore + " | High Score: "+ highScore;
-}
-
-
 function lightButton(btn) {
   document.getElementById("button" + btn).classList.add("lit");
 }
@@ -125,6 +115,12 @@ function lightButton(btn) {
 function clearButton(btn) {
   document.getElementById("button" + btn).classList.remove("lit");
 }
+
+function updateMessage() {
+      document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
+    + currScore + " | High Score: "+ highScore;
+}
+
 function showStrike(){
   document.getElementById("speed").innerHTML = " Current Strikes " + currStrikes; 
    
@@ -136,6 +132,20 @@ function playSingleClue(btn) {
     setTimeout(clearButton,clueHoldTime,btn);
   }
 }
+function clearTimer() {
+  clearTimeout(timer);
+  remainingTime = 0;
+  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
+}
+  
+function updateTimer() {
+    if (remainingTime >= 0) {
+      document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
+      remainingTime--;
+    } else {
+      loseGame();
+    }
+ }
 
 function playClueSequence(){
   guessCounter = 0;
@@ -159,20 +169,6 @@ function playClueSequence(){
       }
     }, delay);
   }
-function clearTimer() {
-  clearTimeout(timer);
-  remainingTime = 0;
-  document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
-}
-  
-function updateTimer() {
-    if (remainingTime >= 0) {
-      document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
-      remainingTime--;
-    } else {
-      loseGame();
-    }
- }
 
 function clearStrikes(){
   currStrikes = 0; 
@@ -196,18 +192,16 @@ function guess(btn){
         progress++;
         currScore = progress;
         updateMessage();
-        currStrikes++;
         playClueSequence();
       }
     }else{
       guessCounter++;
-     
     }
   }else{
-      if (currStrikes = 3){
         loseGame();
     }
-   }
+}
+  
 function speed(fast) {
   switch(fast){
     case "slow": clueHoldTime = 1000;
@@ -233,3 +227,4 @@ g.gain.setValueAtTime(0,context.currentTime)
 o.connect(g)
 o.start(0)
 updateMessage();
+}
