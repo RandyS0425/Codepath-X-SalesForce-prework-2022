@@ -45,17 +45,17 @@ updateMessage();
  });
  
  document.getElementById("easy").addEventListener("click", function (){
- speed("easy");
+ showDifficultyLevel("easy");
  document.getElementById("showDifficultyLevel").innerHTML = "Current difficulty: Easy"
  });
 
  document.getElementById("medium").addEventListener("click", function (){
- speed("medium");
+ showDifficultyLevel("medium");
  document.getElementById("showDifficultyLevel").innerHTML = "Current Difficulty: Medium"
  });
 
  document.getElementById("hard").addEventListener("click", function (){
- speed("hard");
+ showDifficultyLevel("hard");
  document.getElementById("showDifficultyLevel").innerHTML = "Current Speed: Extra Fast "
  });
 function speed(fast) {
@@ -72,11 +72,13 @@ function speed(fast) {
   
 }
 
-  function showDifficultyLevel() {
+  function showDifficultyLevel(easy) {
     
-  switch (difficultyLevel) {
-      case 
-  }
+  switch (easy) {
+    case "easy": difficultyLevel = 6; 
+      break;
+    case "me"
+  }    
     
   }
 
