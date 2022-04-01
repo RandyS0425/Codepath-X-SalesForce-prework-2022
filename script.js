@@ -46,17 +46,17 @@ updateMessage();
  
  document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
- document.getElementById("showDifficultyLevel").innerHTML = "Current difficulty: Easy"
+ document.getElementById("difficulty").innerHTML = "Current difficulty: Easy"
  });
 
  document.getElementById("medium").addEventListener("click", function (){
  showDifficultyLevel("medium");
- document.getElementById("showDifficultyLevel").innerHTML = "Current Difficulty: Medium"
+ document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
  });
 
  document.getElementById("hard").addEventListener("click", function (){
  showDifficultyLevel("hard");
- document.getElementById("showDifficultyLevel").innerHTML = "Current Speed: Extra Fast "
+ document.getElementById("difficulty").innerHTML = "Current Speed: Hard "
  });
 function speed(fast) {
     switch(fast){
@@ -72,22 +72,6 @@ function speed(fast) {
   
 }
 
-  function showDifficultyLevel(easy) {
-    
-  switch (easy) {
-    case "easy": difficultyLevel = 6; 
-      break;
-    case "me"
-  }    
-    
-  }
-
- function generatePattern() {
-    for (let j = 0; j < len; j++) {
-        pattern[j] = Math.ceil(Math.random() * 6);
-   }
- }
-
  function startGame() {
      difficultyLevel = 0;
      progress = 0;
@@ -102,6 +86,24 @@ function speed(fast) {
    }, false);
       playClueSequence();
  }
+ 
+function showDifficultyLevel(easy) {
+    
+  switch (easy) {
+    case "easy": difficultyLevel = 6; 
+      break;
+    case "medium":difficultyLevel = 8;
+      break;
+    default: difficultyLevel = 10;
+  }    
+    
+  }
+function generatePattern() {
+    for (let j = 0; j < len; j++) {
+        pattern[j] = Math.ceil(Math.random() * difficultyLevel);
+      
+      }
+   }
 
 function stopGame() {
     gamePlaying = false; 
