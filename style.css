@@ -51,7 +51,8 @@ h1{
   background: lightblue;
 }
 #button2:active, #button2.lit {
-  
+  background: <img src="https://media.timeout.com/images/105634590/1372/772/image.jpg" />
+
 }
 
 #button3 {
