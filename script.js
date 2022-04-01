@@ -20,15 +20,6 @@ var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
 var difficultyLevel = 0; 
 var difficultyDefault = 6;
-var AudioContext = window.AudioContext || window.webkitAudioContext 
-var context = new AudioContext()
-var o = context.createOscillator()
-var g = context.createGain()
-g.connect(context.destination)
-g.gain.setValueAtTime(0,context.currentTime)
-o.connect(g)
-o.start(0)
-updateMessage();
 
 
 
@@ -48,7 +39,6 @@ document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
  });
-
  document.getElementById("medium").addEventListener("click", function (){
  showDifficultyLevel("medium");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
@@ -57,11 +47,11 @@ document.getElementById("easy").addEventListener("click", function (){
 function speed(fast) {
     switch(fast){
       case "normal": clueHoldTime = 1000;
-                   nextClueWaitTime = 1000;
+                      nextClueWaitTime = 1000;
        break;
       case "fast": clueHoldTime = 500; 
-                  nextClueWaitTime = 500;
-      break;
+                   nextClueWaitTime = 500;
+      break; 
     default: clueHoldTime = 200;
              nextClueWaitTime = 200;
   }
@@ -93,13 +83,11 @@ function showDifficultyLevel(easy) {
  }
 
 function generatePattern() {
-    for (let j = 0; j < len; j++) {
-        pattern[j] = Math.ceil(Math.random() * difficultyDefault);
-      if (difficultyLevel == 10) {
-        alert(10);
+    for (let i = 0; i < len; i++) {
+    pattern.push(Math.floor(Math.random() * difficultyDefault));
+
       }
-      }
-   }
+  }
 
 function stopGame() {
     gamePlaying = false; 
@@ -114,7 +102,6 @@ function stopGame() {
 
  function loseGame(){
     stopGame();
-    currScore = 0;
     alert("Game Over. You lost.");
  }
 
@@ -133,7 +120,7 @@ function stopGame() {
  };
 
  function playTone(btn,len){ 
-  o.frequency.value = freqMap[btn]
+  o.frequency.value = freqMap[btn];
   g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.025);
   context.resume()
   tonePlaying = true;
@@ -158,10 +145,10 @@ function startTone (btn) {
 }
 
  function lightButton(btn){
-  document.getElementById("button"+btn).classList.add("lit")
+  document.getElementById("button"+btn).classList.add("lit");
 }
 function clearButton(btn){
-  document.getElementById("button"+btn).classList.remove("lit")
+  document.getElementById("button"+btn).classList.remove("lit");
 }
 
  function updateMessage() {
@@ -241,7 +228,17 @@ function guess(btn){
          loseGame();
      }
 }
-  
+
+var AudioContext = window.AudioContext || window.webkitAudioContext 
+var context = new AudioContext()
+var o = context.createOscillator()
+var g = context.createGain()
+g.connect(context.destination)
+g.gain.setValueAtTime(0,context.currentTime)
+o.connect(g)
+o.start(0)
+updateMessage();
+
  
 
 
