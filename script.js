@@ -67,9 +67,12 @@ function speed(fast) {
 function showDifficultyLevel(easy) {
     
   switch (easy) {
-    case "easy": difficultyDefault = 6;
+    case "easy": difficultyDefault = 1;
        break;
-    case "hard": difficultyDefault= 10; 
+    case "medium": difficultyDefault= 2; 
+       break;
+      
+    case "hard": difficultyDefault= 3; 
        break;
   }    
 }
@@ -91,9 +94,8 @@ function showDifficultyLevel(easy) {
 function generatePattern() {
     for (let i = 0; i < len; i++) {
       var randomNum = Math.random() * 6
-      console.log("num: " + randomNum);
-    pattern.push(Math.floor(randomNum));
-
+        console.log("num: " + randomNum);
+        pattern.push(Math.floor(randomNum) + 1);
       }
   }
 
@@ -196,6 +198,8 @@ function playClueSequence(){
    reset = false;
    let delay = nextClueWaitTime;
    clearTimeout(timer);
+  console.log("PROGRESS: " + progress)
+  console.log("PROGRESS: " + pattern.length)
    document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
      for (let i = 0; i <= progress; i++) {
         console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
