@@ -84,7 +84,9 @@ function showDifficultyLevel(easy) {
 
 function generatePattern() {
     for (let i = 0; i < len; i++) {
-    pattern.push(Math.floor(Math.random() * difficultyDefault));
+      var randomNum = Math.random() * 6
+      console.log("num: " + randomNum);
+    pattern.push(Math.floor(randomNum));
 
       }
   }
