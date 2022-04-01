@@ -1,7 +1,6 @@
 //Global const
 
 const len = 4;
-const strikes = 3; 
 // Global Variables
 var pattern = [];
 var progress = 0;
@@ -19,7 +18,6 @@ var timer;
 var clueHoldTime = 1000; 
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
-var currStrikes = 0;
 
 function generatePattern() {
   for (let j = 0; j < len; j++) {
@@ -52,6 +50,7 @@ function startGame() {
       console.log("Volume Updated to " + volume); 
 }, false);
       playClueSequence();
+      showStrike();
 }
 
 function stopGame() {
