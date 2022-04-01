@@ -123,6 +123,8 @@ function playClueSequence(){
   clearTimeout(timer);3
   reset = false;
   let delay = nextClueWaitTime;
+  clearTimeout(timer);
+  document.getElementById("p2").innerHTML = "Time remaining: " + timeGiven;
   for (let i = 0; i <= progress; i++) {
     console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
     setTimeout(playSingleClue,delay,pattern[i]);
@@ -133,7 +135,7 @@ function playClueSequence(){
   timer = setTimeout(function tick () {
     if(gamePlaying) {
        updateTimer();
-      timer(tick, 1000);
+      timer = setTimeout(tick, 1000);
       }
     }, delay);
   }
@@ -145,9 +147,9 @@ function clearTimer() {
   
 function updateTimer() {
     if (remainingTime >= 0) {
-      document.getElementById("timer").innerHTML = "Time Remaining: " + remainingTime;
+      document.getElementById("p2").innerHTML = "Time remaining: " + remainingTime;
       remainingTime--;
-    }else {
+    } else {
       loseGame();
     }
  }
