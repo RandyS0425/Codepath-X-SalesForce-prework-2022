@@ -59,7 +59,7 @@ function winGame(){
   stopGame();
   alert("Game over. You won");
 }
-//  Sound Synthesis Functions
+
 const freqMap = {
   1: 261.6,
   2: 329.6,
@@ -124,7 +124,7 @@ function playClueSequence(){
   reset = false;
   let delay = nextClueWaitTime;
   clearTimeout(timer);
-  document.getElementById("p2").innerHTML = "Time remaining: " + timeGiven;
+  document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
   for (let i = 0; i <= progress; i++) {
     console.log("play single cue: " + pattern[i] + "in" + delay + "ms");
     setTimeout(playSingleClue,delay,pattern[i]);
@@ -147,7 +147,7 @@ function clearTimer() {
   
 function updateTimer() {
     if (remainingTime >= 0) {
-      document.getElementById("p2").innerHTML = "Time remaining: " + remainingTime;
+      document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
       remainingTime--;
     } else {
       loseGame();
