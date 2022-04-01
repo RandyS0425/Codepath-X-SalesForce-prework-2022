@@ -18,6 +18,15 @@ var timer;
 var clueHoldTime = 1000; 
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
+var AudioContext = window.AudioContext || window.webkitAudioContext 
+var context = new AudioContext()
+var o = context.createOscillator()
+var g = context.createGain()
+g.connect(context.destination)
+g.gain.setValueAtTime(0,context.currentTime)
+o.connect(g)
+o.start(0)
+updateMessage();
 
 
  document.getElementById("slow").addEventListener("click", function (){
@@ -176,43 +185,34 @@ function guess(btn){
   if(pattern[guessCounter] == btn){
     if(guessCounter == progress){
       if(progress == pattern.length - 1){
-        winGame();
+          winGame();
       }else{
-        progress++;
-        currScore = progress;
-        updateMessage();
-        playClueSequence();
+          progress++;
+          currScore = progress;
+          updateMessage();
+          playClueSequence();
       }
-    }else{
-      guessCounter++;
-    }
-  }else{
-        loseGame();
-    }
+      
+     }else{
+       guessCounter++;
+     }
+     }else{
+         loseGame();
+     }
 }
   
-function speed(fast) {
-  switch(fast){
-    case "slow": clueHoldTime = 1000;
-                 nextClueWaitTime = 1000;
+ function speed(fast) {
+    switch(fast){
+      case "slow": clueHoldTime = 1000;
+                   nextClueWaitTime = 1000;
+       break;
+      case "fast": clueHoldTime = 500; 
+                  nextClueWaitTime = 500;
       break;
-    case "fast":clueHoldTime = 500; 
-                nextClueWaitTime = 500;
-      break;
-    default:clueHoldTime = 200;
-            nextClueWaitTime = 200;
+    default: clueHoldTime = 200;
+             nextClueWaitTime = 200;
   }
   
 }
-// Page Initialization
-// Init Sound Synthesizer
-var AudioContext = window.AudioContext || window.webkitAudioContext 
-var context = new AudioContext()
-var o = context.createOscillator()
-var g = context.createGain()
-g.connect(context.destination)
-g.gain.setValueAtTime(0,context.currentTime)
-o.connect(g)
-o.start(0)
-updateMessage();
+
 
