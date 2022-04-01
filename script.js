@@ -12,7 +12,7 @@ var guessCounter = 0;
 var volume = 0.5;
 var currScore = 0; 
 var highScore = 0;
-var timeGiven = 20; 
+var timeGiven = 10; 
 var remainingTime =0;
 var timer; 
 var clueHoldTime = 1000; 
@@ -111,6 +111,7 @@ function stopGame() {
 
  function loseGame(){
     stopGame();
+    currScore = 0;
     alert("Game Over. You lost.");
  }
 
@@ -152,16 +153,16 @@ function startTone (btn) {
    g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
    tonePlaying = false;
 }
- function lightButton(btn) {
-   document.getElementById("button" + btn).classList.add("lit");
-}
 
- function clearButton(btn) {
-    document.getElementById("button" + btn).classList.remove("lit");
+ function lightButton(btn){
+  document.getElementById("button"+btn).classList.add("lit")
+}
+function clearButton(btn){
+  document.getElementById("button"+btn).classList.remove("lit")
 }
 
  function updateMessage() {
-      document.getElementById("message1").innerHTML ="Press Buttons in the same pattern played to win the game.Select speed & difficulty level before starting. \nCurrent Score: " 
+      document.getElementById("message1").innerHTML ="Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
       + currScore + " | High Score: "+ highScore;
 }
 
