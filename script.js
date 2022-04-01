@@ -44,20 +44,8 @@ updateMessage();
  speed("ExtraFast");
  document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
  });
-document.getElementById("easy").addEventListener("click", function (){
- showDifficultyLevel("easy");
- document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
- });
 
- document.getElementById("medium").addEventListener("click", function (){
- showDifficultyLevel("medium");
- document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
- });
 
- document.getElementById("hard").addEventListener("click", function (){
- showDifficultyLevel("hard");
- document.getElementById("difficulty").innerHTML = "Current Speed: Hard "
- });
 function speed(fast) {
     switch(fast){
       case "normal": clueHoldTime = 1000;
@@ -77,9 +65,8 @@ function showDifficultyLevel(easy) {
   switch (easy) {
     case "easy": difficultyDefault = 6;
        break;
-    case "medium": difficultyDefault= 10; 
+    case "hard": difficultyDefault= 10; 
        break;
-    case "hard": difficultyDefault = 20;
   }    
 }
 
@@ -226,6 +213,8 @@ function guess(btn){
   if(!gamePlaying){
     return;
   }
+  console.log(guessCounter);
+  console.log(btn);
   if(pattern[guessCounter] == btn){
     if(guessCounter == progress){
       if(progress == pattern.length - 1){
