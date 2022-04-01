@@ -48,7 +48,7 @@ h1{
 }
 
 #button2 {
-  background: lightblue;
+  <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">
 }
 #button2:active, #button2.lit {
   background:blue; 

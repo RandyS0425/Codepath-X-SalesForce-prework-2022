@@ -26,7 +26,15 @@ function generatePattern() {
   }
 }
 
-
+   document.getElementById("slow").addEventListener("click", function (){
+       speed("slow");
+     });
+   document.getElementById("fast").addEventListener("click", function (){
+       speed("fast");
+     });
+   document.getElementById("ExtraFast").addEventListener("click", function (){
+       speed("ExtraFast");
+     });
 
 function startGame() {
      progress = 0;
