@@ -26,6 +26,8 @@ function generatePattern() {
   }
 }
 
+
+
 function startGame() {
      progress = 0;
      gamePlaying = true;
