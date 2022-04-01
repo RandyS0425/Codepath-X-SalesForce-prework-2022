@@ -44,7 +44,15 @@ updateMessage();
  speed("ExtraFast");
  document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
  });
+document.getElementById("easy").addEventListener("click", function (){
+ showDifficultyLevel("easy");
+ document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
+ });
 
+ document.getElementById("medium").addEventListener("click", function (){
+ showDifficultyLevel("medium");
+ document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
+ });
 
 function speed(fast) {
     switch(fast){
@@ -125,7 +133,7 @@ function stopGame() {
  };
 
  function playTone(btn,len){ 
-  o.frequency.value = freqMap[btn];
+  o.frequency.value = freqMap[btn]
   g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.025);
   context.resume()
   tonePlaying = true;
