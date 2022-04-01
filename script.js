@@ -39,9 +39,15 @@ document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
  });
+
  document.getElementById("medium").addEventListener("click", function (){
  showDifficultyLevel("medium");
  document.getElementById("difficulty").innerHTML = "Current Difficulty: Medium"
+ });
+
+ document.getElementById("hard").addEventListener("click", function (){
+ showDifficultyLevel("hard");
+ document.getElementById("difficulty").innerHTML = "Current Difficulty: Hard"
  });
 
 function speed(fast) {
@@ -147,6 +153,7 @@ function startTone (btn) {
 }
 
  function lightButton(btn){
+   console.log("BUTTON TO LIGHT: " + btn);
   document.getElementById("button"+btn).classList.add("lit");
 }
 function clearButton(btn){
@@ -161,7 +168,7 @@ function clearButton(btn){
  function playSingleClue(btn) {
    if (gamePlaying) {
      console.log(btn);
-      lightButton(btn - 1);
+      lightButton(btn);
       playTone(btn,clueHoldTime);
       setTimeout(clearButton , clueHoldTime,btn);
   }
