@@ -18,7 +18,7 @@ var timer;
 var clueHoldTime = 1000; 
 var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
-var difficultyLevel = 0; 
+var difficultyLevel = 6; 
 var AudioContext = window.AudioContext || window.webkitAudioContext 
 var context = new AudioContext()
 var o = context.createOscillator()
@@ -42,11 +42,6 @@ updateMessage();
  document.getElementById("ExtraFast").addEventListener("click", function (){
  speed("ExtraFast");
  document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
- });
- 
- document.getElementById("easy").addEventListener("click", function (){
- showDifficultyLevel("easy");
- document.getElementById("difficulty").innerHTML = "Current difficulty: Easy"
  });
 
  document.getElementById("medium").addEventListener("click", function (){
@@ -73,7 +68,6 @@ function speed(fast) {
 }
 
  function startGame() {
-     difficultyLevel = 0;
      progress = 0;
      gamePlaying = true;
      currScore = 0; 
@@ -90,11 +84,10 @@ function speed(fast) {
 function showDifficultyLevel(easy) {
     
   switch (easy) {
-    case "easy": difficultyLevel = 6; 
+    case "medium": difficultyLevel = 10; 
       break;
-    case "medium":difficultyLevel = 8;
+    case "hard":difficultyLevel = 20;
       break;
-    default: difficultyLevel = 10;
   }    
     
   }
@@ -168,7 +161,7 @@ function startTone (btn) {
 }
 
  function updateMessage() {
-      document.getElementById("message1").innerHTML = "Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
+      document.getElementById("message1").innerHTML ="Press Buttons in the same pattern played to win the game.Select speed & difficulty level before starting. \nCurrent Score: " 
       + currScore + " | High Score: "+ highScore;
 }
 
