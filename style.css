@@ -21,10 +21,10 @@ body {
 }
 button{
   padding: 10px;
-  border-radius: 10px;
-}
+  border-radius: 50px;
 
 }
+
 h1{
   font-family: helvetica, arial, sans-serif; 
 }
@@ -41,6 +41,7 @@ h1{
 
 #button1 {
   background: lightgreen;
+}
 
 #button1:active, #button1.lit{
   background: green; 
