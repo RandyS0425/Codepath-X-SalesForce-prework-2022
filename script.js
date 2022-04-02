@@ -70,14 +70,11 @@ function speed(fast) {
 function showDifficultyLevel(easy) {
   switch (easy) {
     case "easy": difficultyDefault = 4;
-      len = 1
        break;
     case "medium": difficultyDefault= 6; 
-      len = 2
        break;
       
     case "hard": difficultyDefault= 8; 
-      len = 3
        break;
   }    
 }
