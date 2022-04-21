@@ -70,11 +70,14 @@ function speed(fast) {
 function showDifficultyLevel(easy) {
   switch (easy) {
     case "easy": difficultyDefault = 4;
+      len = 1
        break;
     case "medium": difficultyDefault= 6; 
+      len = 2
        break;
       
     case "hard": difficultyDefault= 8; 
+      len = 3
        break;
   }    
 }
@@ -169,7 +172,8 @@ function clearButton(btn){
 }
 
  function updateMessage() {
-      document.getElementById("message1").innerHTML =" \nCurrent Score: " + currScore + " | High Score: "+ highScore;
+      document.getElementById("message1").innerHTML =" \nCurrent Score: " 
+      + currScore + " | High Score: "+ highScore;
 }
 
  function playSingleClue(btn) {
@@ -246,9 +250,6 @@ function guess(btn){
          loseGame();
      }
 }
-function buttonChange() {
-  if
-}
 
 var AudioContext = window.AudioContext || window.webkitAudioContext 
 var context = new AudioContext()
@@ -261,5 +262,4 @@ o.start(0)
 updateMessage();
 
  
-
 
