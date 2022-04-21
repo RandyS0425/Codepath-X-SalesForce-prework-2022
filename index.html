@@ -16,16 +16,13 @@
   </head>
   <body>
    <center><h1> Light and Sound Memory Game </h1></center> 
-    <center><h2><font Press Buttons in the same pattern played to win the game</h2></center>
+    <center><h2><font size = 3> Press Buttons in the same pattern played to win the game</font></h2></center>
     
    <center><p id = "message1"></p></center> 
       
 
     
-    <div class="slidecontainer">
-    <img src = "https://cdn.glitch.com/426e7d0a-f0e2-4207-8ff9-d34e4085a91f%2Fsound-off-icon-40944.png?v=1615183487030" style="width:20px;height:20px;">
-    <input id = "volumeSlider" type="range" min="1" max="100" value="50" class="slider">
-    </div>
+    
 
     <p id ="timer">
     </p>
@@ -38,10 +35,8 @@
     
     <p id ="difficulty">
     </p>     
-    
-    <button id="startBtn" onclick = "startGame()">
-      Start
-    </button>
+    <center>
+    <button id="startBtn" onclick = "startGame()"> Start </button>
     <button id="stopBtn" class = "hidden" onclick = "stopGame()">
       Stop
     </button>
@@ -64,10 +59,12 @@
      
   </div>
   </div>
+  </center>
   
-  
+    <div =
   
 <!--     <p id = "clock"> Countdown: </p> -->
+    <center>
   <div id="gameButtonArea">
     <button id="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"></button>
     <button id="button2" onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"></button>
@@ -75,7 +72,15 @@
     <button id="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"></button>
     <button id="button5" onclick="guess(5)" onmousedown="startTone(5)" onmouseup="stopTone()"></button>
     <button id="button6" onclick="guess(6)" onmousedown="startTone(6)" onmouseup="stopTone()"></button>
-  </div>
+  </div
+    </center>
+  
+    
+    
+     <div class="slidecontainer">
+    <img src = "https://cdn.glitch.com/426e7d0a-f0e2-4207-8ff9-d34e4085a91f%2Fsound-off-icon-40944.png?v=1615183487030" style="width:30px;height:30px;">
+    <input id = "volumeSlider" type="range" min="1" max="100" value="50" class="slider">
+    </div>
     
 </body>
       
