@@ -13,7 +13,7 @@ html {
 /* adjust typography defaults */
 body {
   font-family: helvetica, arial, sans-serif; 
-  background-color: #0D0602;
+  background-color: #49356D;
   color: white; 
   margin: 1rem;
   font-family: sans-serif;
@@ -48,6 +48,10 @@ h2{
 
 #button1:active, #button1.lit{
   background: green; 
+  
+}
+#button1:active, #button1.party{
+  
 }
 
 #button2 {

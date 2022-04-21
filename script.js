@@ -246,6 +246,9 @@ function guess(btn){
          loseGame();
      }
 }
+function buttonChange() {
+  if
+}
 
 var AudioContext = window.AudioContext || window.webkitAudioContext 
 var context = new AudioContext()
