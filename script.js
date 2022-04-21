@@ -169,8 +169,7 @@ function clearButton(btn){
 }
 
  function updateMessage() {
-      document.getElementById("message1").innerHTML ="Press Buttons in the same pattern played to win the game. \nCurrent Score: " 
-      + currScore + " | High Score: "+ highScore;
+      document.getElementById("message1").innerHTML =" \nCurrent Score: " + currScore + " | High Score: "+ highScore;
 }
 
  function playSingleClue(btn) {
