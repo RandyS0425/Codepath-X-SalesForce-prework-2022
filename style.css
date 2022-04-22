@@ -241,13 +241,9 @@ video {
   font-size: 16px;
   border: none;
 }
-.highScore{
-  position: relative;
-  top: -180px;
-}
 
-.dropdown{
-  
+.dropdown {
+  position: relative;
   display: inline-block;
 }
 
@@ -260,12 +256,15 @@ video {
   z-index: 1;
 }
 
-
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+}
+.highScore {
+  position: relative; 
+  top: -100px; 
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
@@ -282,11 +281,6 @@ video {
   padding: 16px;
   font-size: 16px;
   border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
 }
 
 .dropdown-content {
