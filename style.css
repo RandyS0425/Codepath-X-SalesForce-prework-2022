@@ -105,7 +105,6 @@ h2{
 }
 
 #button3 {
-  background: pink; 
   position: relative;
   top: 25px;
   width: 140px;
@@ -116,7 +115,7 @@ h2{
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color: lightblue;
+  background-color: pink;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -125,7 +124,7 @@ h2{
   outline: none;
 }
 #button3:hover {
-  background-color: #24CEE4;
+  background-color: #AA2B27;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
@@ -135,26 +134,91 @@ h2{
   background:red;
 }
 #button4 {
-  background: lightyellow;
   position: relative;
   top: 25px;
+  top: 25px;
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background: lightyellow;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 5);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
   
+}
+#button4:hover {
+  background-color: #959024;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 #button4:active, #button4.lit {
   background: yellow; 
 }
 #button5 {
-  background: black;
   position: relative;
   top: 25px;
+  top: 25px;
+  top: 25px;
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background: black;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 5);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+#button5:hover {
+  background-color: #44432D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 #button5:active, #button5.lit {
   background: white;
 }
 #button6 {
-  background: #FFD580;
   position: relative;
   top: 25px;
+  top: 25px;
+  top: 25px;
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+   background: #FFD580;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 5);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+#button6:hover {
+  background-color: #EB6F0F;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 #button6:active, #button6.lit {
   background: orange;
