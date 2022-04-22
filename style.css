@@ -37,6 +37,8 @@ h2{
   }
  
 #gameButtonArea button{
+  position:relative;
+  top: 50px;
   width: 200px;
   height:200px;
   margin:2
@@ -106,7 +108,7 @@ h2{
 
 #button3 {
   position: relative;
-  top: 25px;
+  top: 10Fpx;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -240,6 +242,10 @@ video {
   padding: 16px;
   font-size: 16px;
   border: none;
+}
+.highscore{
+  position: relative;
+  top: 10px;
 }
 
 .dropdown {
