@@ -44,7 +44,7 @@ h2{
 
 #button1 {
   position: relative;
-  top: -100px;
+  top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -75,7 +75,7 @@ h2{
 
 #button2 {
   position: relative;
-  top: -100px;
+  top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -106,7 +106,7 @@ h2{
 
 #button3 {
   position: relative;
-  top: -100px;
+  top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -135,7 +135,7 @@ h2{
 }
 #button4 {
   position: relative;
-  top: -100px;
+  top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -164,7 +164,7 @@ h2{
 }
 #button5 {
   position: relative;
-   top: -100px;
+   top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -192,7 +192,7 @@ h2{
 }
 #button6 {
   position: relative;
-  top: -100px;
+  top: -250px;
   width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
@@ -240,7 +240,7 @@ video {
 .dropdown {
   position: relative;
   display: inline-block;
-  top: -180px;
+  top: -350px;
 }
 
 .dropdown-content {
@@ -260,7 +260,7 @@ video {
 }
 .highScore {
   position: relative; 
-  top: -300px; 
+  top: -200px; 
 }
 
 
@@ -299,7 +299,7 @@ video {
 
 .slidecontainer {
   position: relative;
-  top: -80px;
+  top: -200px;
 }
 .container {
         display: table-cell;
