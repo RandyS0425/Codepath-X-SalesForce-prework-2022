@@ -301,8 +301,11 @@ video {
   
 }
 
-.slideContainer {
-  
+.slidecontainer {
+  position: relative;
+  top: 60px;
+  top: 60px;
+  top: 60px;
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
