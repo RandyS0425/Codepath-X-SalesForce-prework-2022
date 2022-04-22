@@ -240,7 +240,7 @@ video {
 .dropdown {
   position: relative;
   display: inline-block;
-  top: -350px;
+  top: -280px;
 }
 
 .dropdown-content {
