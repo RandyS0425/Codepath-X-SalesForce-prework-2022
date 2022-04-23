@@ -70,8 +70,8 @@ If you recorded multiple GIFs for all the implemented features, you can add them
    
 </details>
 <details open>
-<summary>Speed Drop-down Menu</summary>
- <img src="http://g.recordit.co/921vNbI4sO.gif"width=250>
+<summary>Speed High score kepper & timer </summary>
+ <img src="http://g.recordit.co/b2NIyypwou.gif"width=250>
    <br>
 
 ## Reflection Questions
