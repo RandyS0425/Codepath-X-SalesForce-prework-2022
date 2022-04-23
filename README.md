@@ -53,7 +53,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 
 <details open>
 <summary> Volume Slider</summary>
-<img src="http://g.recordit.co/2dk1uc2DQb.gif"width=250>
+<img src="http://g.recordit.co/3UQtVnTdpU.gif"width=250>
    <br>
 </details>
 
