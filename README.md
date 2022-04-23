@@ -47,7 +47,7 @@ The following **additional** features are implemented:
 If you recorded multiple GIFs for all the implemented features, you can add them here:
 <details open>
 <summary>Overall Showcase</summary>
-   <img src="https://hnet.com/video-to-gif/viewimage/20220422-14-cVm6zVX6GCRoXeB9-eiz6il-hnet"width=250>
+   <img src="http://g.recordit.co/HlpJn1msw6.gif"width=250>
 <br>
 </details>
 
