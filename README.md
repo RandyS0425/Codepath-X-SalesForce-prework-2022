@@ -59,7 +59,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 
 <details open>
 <summary>Difficulty Drop-down Menu</summary>
- <img src="http://g.recordit.co/TGeWp5M0k0.gif"width=250>
+ <img src="http://g.recordit.co/cVSBOT8ZzB.gif"width=250>
    <br>
    
 </details>
