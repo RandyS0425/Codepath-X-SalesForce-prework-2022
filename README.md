@@ -65,7 +65,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 </details>
 <details open>
 <summary>Speed Drop-down Menu</summary>
- <img src="http://g.recordit.co/1Q6oEZvGUL.gif"width=250>
+ <img src="http://g.recordit.co/7SOu2dZ6sC.gif"width=250>
    <br>
    
 </details>
