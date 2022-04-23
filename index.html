@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
+  
 
     <title>  Color Game </title>
 
@@ -17,44 +18,47 @@
   <body>
    
     
-<div class="container">
-      <div class="glow"><center><h1> Light and Sound Memory Game </h1></center> 
-    <center><h2><font size = 3> Press Buttons in the same pattern played to win the game</font></h2></center></div>
+    <div class="container">
+    <div class="glow"><center><h1> Light and Sound Memory Game </h1></center> 
+    <center><h2><font size = "15px"> Press Buttons in the same pattern played to win the game</font></h2></center></div>
     </div>
-    
+      
     
     <div class = "highScore">
-   <center><p id = "message1"></p></center> 
+    <center><p id = "message1"></p></center> 
     </div>
     
     
-    
-
-    <p id ="timer">
-    </p>
-    
-    <p id = "currentSpeed">
-    </p>
-    
-    <p id = "speed">
-    </p>
-    
-    <p id ="difficulty">
-    </p>     
-    <center>
+    <style>
+    h2, h2, h2,h2 {display: inline-grid	;}
       
+      
+  </style>
+  <div class = "timer">
+  <h2 id ="timer"> </h2>
+    </div>
+    
+  <div class = "menu">
+    <h2 id = "currentSpeed"></h2>
+    <h2 id = "speed"> </h2>
+    <h2 id ="difficulty"></h2>  
+    </div>
+    
+      
+      
+      <center>
     <div class="dropdown">
     <button id="startBtn" onclick = "startGame()"> Start </button>
     <button id="stopBtn" class = "hidden" onclick = "stopGame()">
       Stop
     </button>
-     <button class="dropbtn">Speed</button>
-  <div class="dropdown-content">
+    <button class="dropbtn">Speed</button>
+    <div class="dropdown-content">
      <a href="#" id = "normal">Normal</a>
      <a href="#" id = "fast">Fast </a>
      <a href="#" id = "ExtraFast">Extra Fast </a>
-  </div>
-  </div>
+     </div>
+     </div>
   
   <div class="dropdown">
      <button class="dropbtn">Difficulty</button>
@@ -66,10 +70,8 @@
   </div>
   </div>
   </center>
-  
-    
-  
-<!--     <p id = "clock"> Countdown: </p> -->
+
+
     <center>
   <div id="gameButtonArea">
     <button id="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"></button>
@@ -78,8 +80,10 @@
     <button id="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"></button>
     <button id="button5" onclick="guess(5)" onmousedown="startTone(5)" onmouseup="stopTone()"></button>
     <button id="button6" onclick="guess(6)" onmousedown="startTone(6)" onmouseup="stopTone()"></button>
-  </div
+      </div>
     </center>
+    
+    
   
     
    
@@ -91,3 +95,4 @@
 </body>
       
 </html>
+
