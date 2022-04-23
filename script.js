@@ -1,6 +1,5 @@
 //Global const
 
-var len = 4;
 // Global Variables
 var pattern = [];
 var progress = 0;
@@ -20,12 +19,13 @@ var cluePauseTime = 333;
 var nextClueWaitTime = 1000;
 var difficultyLevel = 0; 
 var difficultyDefault = 6;
+var len = 4;
 
 
 
  document.getElementById("normal").addEventListener("click", function (){
  speed("normal");
- document.getElementById("currentSpeed").innerHTML = "Current Speed: Normal "
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Normal"
  });
  document.getElementById("fast").addEventListener("click", function (){
  speed("fast");
@@ -33,11 +33,11 @@ var difficultyDefault = 6;
  });
  document.getElementById("ExtraFast").addEventListener("click", function (){
  speed("ExtraFast");
- document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast "
+ document.getElementById("currentSpeed").innerHTML = "Current Speed: Extra Fast"
  });
 document.getElementById("easy").addEventListener("click", function (){
  showDifficultyLevel("easy");
- document.getElementById("difficulty").innerHTML = "Current Difficulty: easy"
+ document.getElementById("difficulty").innerHTML = "Current Difficulty: Easy"
   len = 4 
  });
 
@@ -53,12 +53,13 @@ document.getElementById("easy").addEventListener("click", function (){
    len = 8
  });
 
+
 function speed(fast) {
     switch(fast){
       case "normal": clueHoldTime = 1000;
                       nextClueWaitTime = 1000;
        break;
-      case "fast": clueHoldTime = 500; 
+      case "normal": clueHoldTime = 500; 
                    nextClueWaitTime = 500;
       break; 
     default: clueHoldTime = 200;
@@ -72,7 +73,7 @@ function showDifficultyLevel(easy) {
     case "easy": difficultyDefault = 4;
       len = 1
        break;
-    case "medium": difficultyDefault= 6; 
+    case "medium ": difficultyDefault= 6; 
       len = 2
        break;
       
@@ -188,12 +189,12 @@ function clearButton(btn){
 function clearTimer() {
    clearTimeout(timer);
    remainingTime = 0;
-   document.getElementById("timer").innerHTML = "Remaining Time: " + remainingTime;
+   document.getElementById("timer").innerHTML = "     Remaining Time:     " + remainingTime;
 }
   
  function updateTimer() {
      if (remainingTime >= 0) {
-         document.getElementById("timer").innerHTML = "Time remaining: " + remainingTime;
+         document.getElementById("timer").innerHTML = "     Remaining Time     " + remainingTime;
          remainingTime--;
      } else {
        loseGame();
@@ -262,4 +263,5 @@ o.start(0)
 updateMessage();
 
  
+
 
